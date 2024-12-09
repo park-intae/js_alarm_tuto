@@ -1,24 +1,27 @@
- <!DOCTYPE html>
- <html lang="kr">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
- </head>
- <body>
-     
-   <div class="alert-box" id="alert">
-      알림창
-      <button onclick="alertSwitcher('none')">닫기</button></div>
-   <button onclick="alertSwitcher('block')">버튼</button>
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+  <div class="alert-box" id="alert">
+     <span id="title"></span>
+     <button onclick="alertSwitch('none')">닫기</button>
+   </div>
+  <button onclick="alertSwitch('block' , 'id ㄱㄱ');">버튼1</button>
+  <button onclick="alertSwitch('block', 'pw ㄱㄱ');">버튼2</button>
 
-   <script>
+  <script>
+    
+   function alertSwitch(display, loginItem) {
+     document.getElementById('alert').style.display = display;
+     document.getElementById('title').innerHTML = loginItem;
+   }
 
-    function alertSwitcher(x) {
-      document.getElementById('alert').style.display = x;
-    }
-
-   </script>
- </body>
- </html>
+  </script>
+</body>
+</html>
