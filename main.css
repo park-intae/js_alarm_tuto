@@ -1,7 +1,7 @@
-.alert-box {
-     background-color: skyblue;
-     padding: 20px;
-     color: white;
-     border-radius: 5px;
-     display: none; /*ui 숨기기*/
+.list-group{
+     display: none;
+}
+
+.show {
+     display: block;
 }
