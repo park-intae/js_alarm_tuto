@@ -15,7 +15,18 @@
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
-      <button class="btn btn-danger" id="close">닫기</button>
+      <form action="success.html">
+        <div class="input-container">
+          <div class="my-3">
+            <input type="text" class="form-control" id="id-input">
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="pw-input">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form>
     </div>
   </div>
 
@@ -66,6 +77,18 @@
     $('#close').on('click', function () {
       $('.black-bg').removeClass('show-modal');
     })
+        //form
+        $('#submit').on('click', function (e) {
+          if ($('#id-input').val() == "" || $('#pw-input').val() == "") {
+            e.preventDefault();
+            $('.input-container p').remove();
+            $('.input-container').append("<p style='color:red'>아이디나 비밀번호가 입력되지 않았습니다</p>");
+          }
+        }) // id/pw 값 없이 form을 submit
+        
+        $('#close').on('click', function () {
+          $('.input-container p').remove();
+        }); // 모달 닫을 때 p태그 제거
   </script>
 </body>
 
