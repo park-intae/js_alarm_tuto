@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="num">
+    <button onclick="삼육구게임()">삼육구게임</button>
+    <button onclick="삼육구게임2()">삼육구게임2</button>
+    <br />
+    <input type="number" id="intro-grade" placeholder="개론">
+    <input type="number" id="civill-grade" placeholder="민법">
+    <button onclick="합격했냐()">제출</button>
+
+    <script>
+        function 삼육구게임() {
+            let num = document.getElementById('num').value;
+            if (num % 3 == 0) {
+                if (num % 9 == 0) {
+                    console.log('ㅉㅉ!');
+                } else {
+                    console.log('짝!');
+                }
+            } else {
+                console.log('통과');
+            }
+        }
+
+        function 삼육구게임2(){
+            let num = document.getElementById('num').value;
+            let lastDigit = num % 10;
+            
+            if(Number(lastDigit) == 3 || Number(lastDigit) == 6 || Number(lastDigit) == 9){
+                console.log('ㅉ')
+            }else{
+                console.log('ㅌㄱ')
+            }
+        }
+
+        function 합격했냐() {
+            let intr = Number(document.getElementById('intro-grade').value);
+            let civi = Number(document.getElementById('civill-grade').value);
+
+            if (intr > 0 && intr < 101 && civi > 0 && civi < 101) {
+                if (intr + civi >= 120) {
+                    if (intr >= 40 && civi >= 40) {
+                        console.log('합');
+                    } else {
+                        console.log('불합');
+                    }
+                } else {
+                    console.log('불합');
+                }
+            }else{
+                alert('ㅈㄹㄴ 숫자 제대로 입력 ㄱㄱ')
+            }
+        }
+    </script>
+</body>
+
+</html>

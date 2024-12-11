@@ -78,14 +78,18 @@
       $('.black-bg').removeClass('show-modal');
     })
         //form
-        $('#submit').on('click', function (e) {
+        $('form').on('submit', function (e) {
+          $('.input-container p').remove();
           if ($('#id-input').val() == "" || $('#pw-input').val() == "") {
             e.preventDefault();
-            $('.input-container p').remove();
-            $('.input-container').append("<p style='color:red'>아이디나 비밀번호가 입력되지 않았습니다</p>");
+            $('.input-container').append("<p class='decline'>아이디나 비밀번호가 입력되지 않았습니다</p>");
+          } // id/pw 값 없이 form을 submit
+          if ($('#pw-input').val().length < 6){
+            e.preventDefault();
+            $('.input-container').append("<p class='decline'> pw의 길이가 너무 짧습니다(6자 이상)</p>")
           }
-        }) // id/pw 값 없이 form을 submit
-        
+        });  
+
         $('#close').on('click', function () {
           $('.input-container p').remove();
         }); // 모달 닫을 때 p태그 제거
