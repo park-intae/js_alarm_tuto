@@ -33,7 +33,8 @@
   <!-- nav-bar -->
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">BookJournal</span>
+      <span class="badge bg-dark">Dark 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -67,6 +68,19 @@
 
   <script>
     // nav-bar
+    // 다크모드 클릭시 내부 글자 Light<-> Dark로 변경
+    //         홀수번 클릭 시 Light
+    //         짝수번 클릭 시 Dark
+    let count = 0;
+    $('.badge').on('click', function(){
+      count ++;
+      if(count % 2 == 1){
+        $(this).text('Light🔄');
+      }else if(count % 2 == 0){
+        $(this).text('Dark🔄');
+      }
+      
+    })
     $('.navbar-toggler').on('click', function () {
       $('.list-group').toggleClass('show');
     })
