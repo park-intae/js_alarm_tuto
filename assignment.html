@@ -8,58 +8,58 @@
 </head>
 
 <body>
-    <input type="number" id="num">
-    <button onclick="삼육구게임()">삼육구게임</button>
-    <button onclick="삼육구게임2()">삼육구게임2</button>
-    <br />
-    <input type="number" id="intro-grade" placeholder="개론">
-    <input type="number" id="civill-grade" placeholder="민법">
-    <button onclick="합격했냐()">제출</button>
+
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
 
     <script>
-        function 삼육구게임() {
-            let num = document.getElementById('num').value;
-            if (num % 3 == 0) {
-                if (num % 9 == 0) {
-                    console.log('ㅉㅉ!');
-                } else {
-                    console.log('짝!');
-                }
-            } else {
-                console.log('통과');
-            }
-        }
+        let count = 0;
 
-        function 삼육구게임2(){
-            let num = document.getElementById('num').value;
-            let lastDigit = num % 10;
-            
-            if(Number(lastDigit) == 3 || Number(lastDigit) == 6 || Number(lastDigit) == 9){
-                console.log('ㅉ')
-            }else{
-                console.log('ㅌㄱ')
-            }
-        }
-
-        function 합격했냐() {
-            let intr = Number(document.getElementById('intro-grade').value);
-            let civi = Number(document.getElementById('civill-grade').value);
-
-            if (intr > 0 && intr < 101 && civi > 0 && civi < 101) {
-                if (intr + civi >= 120) {
-                    if (intr >= 40 && civi >= 40) {
-                        console.log('합');
-                    } else {
-                        console.log('불합');
-                    }
-                } else {
-                    console.log('불합');
+        document.querySelector('#send-answer').addEventListener('click',function(){
+            count += 1;
+            let ans = document.getElementById('answer').value;
+            if(count != 3){
+                if(ans == 1335){
+                    alert('ㅊㅊ');
+                }else{
+                    alert('리 ㄱㄱ');
                 }
             }else{
-                alert('ㅈㄹㄴ 숫자 제대로 입력 ㄱㄱ')
+                alert('컷 ㅅㄱ ㅅㄷ~');
+                count = 0;
             }
-        }
+        })
     </script>
+
+    <!-- <script>
+        let 예금액 = 60000;
+        let 미래예금액 = 0;
+
+        for (let i = 0; i < 2; i++) {
+            if (예금액 < 50000) {
+                미래예금액 = 예금액 * 1.15;
+            } else if (예금액 > 50000) {
+                미래예금액 = 예금액 * 1.2;
+            }
+            예금액 = 미래예금액;
+        }
+        console.log(미래예금액)
+
+
+        let first = 360;
+        let total = first;
+        let refill = first * 2 / 3;
+        let i = 0;
+
+        while (i < 2) {
+            total += refill;
+            refill *= (2 / 3);
+            i++;
+        }
+
+        console.log(total);
+    </script> -->
 </body>
 
 </html>

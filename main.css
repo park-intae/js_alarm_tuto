@@ -1,3 +1,9 @@
+/* body */
+.dark {
+     background-color: black;
+     color: white;
+}
+
 /* nav-bar */
 .list-group {
      max-height: 0px;
