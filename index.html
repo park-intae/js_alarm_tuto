@@ -39,6 +39,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+    <div class="scrolling"></div>
   </nav>
 
   <!-- main-sec -->
@@ -56,6 +57,14 @@
     <h4>NovelPost</h4>
     <button id="login" class="btn btn-danger">login</button>
   </div>
+
+  <div class="lorem-container">
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll;">Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit,
+      excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</div>
+  </div>
+
+  <div style="height: 100px"></div>
 
   <div style="overflow: hidden">
     <div class="slide-container">
@@ -80,6 +89,7 @@
   <div class="alert alert-danger">
     5초 이내 구매 시 사은품 증정!!!
   </div>
+
 
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -116,6 +126,26 @@
     $('.navbar-toggler').on('click', function () {
       $('.list-group').toggleClass('show');
     })
+    //nav-bar 스크롤시 크기 조절
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop() > 100) {
+        $('.navbar-brand').css('font-size', '20px');
+      } else {
+        $('.navbar-brand').css('font-size', '30px');
+      }
+    })
+    //페이지 스크롤량 확인 바
+    //스크롤 내리면 그거 파악해서 transformX로 srcolling 조절
+    let wholehi = $('html').prop('scrollHeight');
+    let viewhi = $('html').innerHeight();
+    console.log(wholehi, viewhi)
+    $(window).on('scroll',function(){
+      let nowScr = $('html').scrollTop();
+      let scrollPercent = 100 - (2 * nowScr / 10);
+      console.log(nowScr, scrollPercent)
+      $('.scrolling').css('transform', `translateX(-${scrollPercent}%)`);
+    })
+
 
     // modal
     $('#login').on('click', function () {
@@ -171,6 +201,17 @@
         $('.alert').hide()
       }, 5000)
     }
+    // 이용약관 스크롤 안내
+    $('.lorem').on('scroll', function () {
+      let 스크롤양 = $('.lorem').scrollTop();
+      let div높이 = $('.lorem').prop(scrollHeight);
+      let 보이는높이 = $('.lorem').innerHeight();
+      if (Math.abs(스크롤양 + 보이는높이 - div높이) <= 10) {
+        if (!$('.lorem-container p').length) {
+          $('.lorem-container').append('<p style="color:orange">약관을 모두 읽었습니다</p>');
+        }
+      }
+    })
 
     //슬라이드 넘기기
     function slideFlip() {
