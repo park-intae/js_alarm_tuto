@@ -208,9 +208,9 @@
     // 이용약관 스크롤 안내
     $('.lorem').on('scroll', function () {
       let 스크롤양 = $('.lorem').scrollTop();
-      let div높이 = $('.lorem').prop(scrollHeight);
+      let div높이 = $('.lorem').prop('scrollHeight');
       let 보이는높이 = $('.lorem').innerHeight();
-      if (Math.abs(스크롤양 + 보이는높이 - div높이) <= 10) {
+      if (스크롤양 + 보이는높이 >=  div높이- 10) {
         if (!$('.lorem-container p').length) {
           $('.lorem-container').append('<p style="color:orange">약관을 모두 읽었습니다</p>');
         }
