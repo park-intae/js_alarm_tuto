@@ -135,7 +135,6 @@
       }
     })
     //페이지 스크롤량 확인 바
-    //스크롤 내리면 그거 파악해서 transformX로 srcolling 조절
     let wholehi = $('html').prop('scrollHeight');
     let viewhi = $('html').innerHeight();
     console.log(wholehi, viewhi)
@@ -153,6 +152,11 @@
     })
     $('#close').on('click', function () {
       $('.black-bg').removeClass('show-modal');
+    })
+    $('.black-bg').on('click',function(e){
+      if(e.target == this){
+        $(this).removeClass('show-modal')
+      }
     })
     //form
     $('form').on('submit', function (e) {
