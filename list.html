@@ -56,10 +56,9 @@
             { id: 1, price: 50000, title: 'Springfield Shirt' },
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
-        for(let i = 0; i < products.length; i++){
-            let card = $(`.card${i}`)
-            card.find('h5').text(products[i].title);
-            card.find('price').text(products[i].price);
+        for (let i = 0; i < products.length; i++) {
+            $('.card-body h5').eq(i).text(products[i].title);
+            $('.card-body p').eq(i).html(`가격 : ${products[i].price} &#8361;`);
         }
     </script>
 </body>
