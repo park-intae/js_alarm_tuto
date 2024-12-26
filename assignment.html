@@ -8,58 +8,23 @@
 </head>
 
 <body>
-
-    <p>태조 이성계가 태어난 년도는?</p>
-    <input type="text" id="answer">
-    <button id="send-answer">제출</button>
-
     <script>
-        let count = 0;
-
-        document.querySelector('#send-answer').addEventListener('click',function(){
-            count += 1;
-            let ans = document.getElementById('answer').value;
-            if(count != 3){
-                if(ans == 1335){
-                    alert('ㅊㅊ');
-                }else{
-                    alert('리 ㄱㄱ');
-                }
+        function 모시깽함수(arr, b){
+            let sum = 0;
+            for(let i = 0; i < arr.length; i++){
+                sum = sum + arr[i]
+            }
+            let eve = sum / arr.length
+            let result = 0
+            if(eve < b){
+                result = eve - b;
+                console.log(result + '만큼 오름 ㅊ');
             }else{
-                alert('컷 ㅅㄱ ㅅㄷ~');
-                count = 0;
+                result = b - eve;
+                console.log(result + '만큼 떨어짐 님 ㅅㄱ');
             }
-        })
+        }
     </script>
-
-    <!-- <script>
-        let 예금액 = 60000;
-        let 미래예금액 = 0;
-
-        for (let i = 0; i < 2; i++) {
-            if (예금액 < 50000) {
-                미래예금액 = 예금액 * 1.15;
-            } else if (예금액 > 50000) {
-                미래예금액 = 예금액 * 1.2;
-            }
-            예금액 = 미래예금액;
-        }
-        console.log(미래예금액)
-
-
-        let first = 360;
-        let total = first;
-        let refill = first * 2 / 3;
-        let i = 0;
-
-        while (i < 2) {
-            total += refill;
-            refill *= (2 / 3);
-            i++;
-        }
-
-        console.log(total);
-    </script> -->
 </body>
 
 </html>

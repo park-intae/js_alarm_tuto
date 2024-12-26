@@ -84,6 +84,7 @@
         <select class="custom-select mt-2">
             <option>모자</option>
             <option>셔츠</option>
+            <option>바지</option>
         </select>
         <select class="custom-select mt-2 form-hide">
             <option>95 </option>
@@ -95,7 +96,7 @@
     <div class="container mt-5">
         <ul class="list">
             <li class="tab-button">Products</li>
-            <li class="tab-button orange">Information</li>
+            <li class="tab-button">Information</li>
             <li class="tab-button">Shipping</li>
         </ul>
         <div class="tab-content">
@@ -111,13 +112,19 @@
 
     <script src="tap.js"></script>
     <script>
-        $('.custom-select').eq(0).on('input',function(e){
-            let value = e.currentTarget.val();
-            if(value == '셔츠'){
-                $('.custom-select').eq(1).removeClass('form-hide');
-            }else{
-                $('.custom-select').eq(1).addClass('form-hide');
 
+        let pants = [28, 30, 32]
+        $('.form-select').eq(0).on('input',function(){
+            let value = this.vaie;
+            
+            if(value == '셔츠'){
+                $('.form=select').eq(1).removeClass('form-hide')
+            }else if(value == '바지'){
+                $('.form-select').eq(1).removeClass('.form-hide');
+                $('.form-select').eq(1).html('');
+                pants.forEach((a) => {
+                    $('.form-select').eq(1).append(`<option>${a}</option>`)
+                })
             }
         })
     </script>
