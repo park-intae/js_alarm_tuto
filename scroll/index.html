@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="card-background">
+        <div class="card-box">
+            <img src="card1.png">
+        </div>
+        <div class="card-box">
+            <img src="card2.png">
+        </div>
+        <div class="card-box">
+            <img src="card3.png">
+        </div>
+    </div>
+
+    <script>
+        $(window).scroll(()=>{
+            let height = $(window).scrollTop();
+            let a = -1/500 * height + 115/50;
+            $('.card-box').eq(0).css('opacity',a);
+            let b = (-1/5000) * height + 565/500
+            $('.card-box').eq(0).css('transform', `scale(${z})`)
+        })
+    </script>
+</body>
+
+</html>
