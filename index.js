@@ -148,7 +148,7 @@ function slideFlip() {
     });
 
     // 마우스 드래그 시 슬라이드 이동
-    var startPoint = 0;
+    let startPoint = 0;
     let clicked = false;
 
     $('.slide-box').eq(0).on('mousedown', (e) => {
@@ -157,15 +157,20 @@ function slideFlip() {
     });
 
     $('.slide-box').eq(0).on('mouseup', (e) => {
-        if(clicked){
-            clicked = false;
+        clicked = false;
+        if(e.clientX - startPoint < -200){
+            $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-100vw)')
+        }else{
+            $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(0vw)');
         }
-        
+        setTimeout(() => {
+            $('.slide=container').css('transition', 'none')
+        }, 500);
     })
     
     $('.slide-box').eq(0).on('mousemove', (e) => {
         if (clicked === true) {
-            $('.slide-container').css('transform', `translateX( ${e.clientX - startPoint}px )`)
+            $('.slide-container').css('transform', `translateX( ${e.clientX - startPoint}px)`)
         }
     });
 }
